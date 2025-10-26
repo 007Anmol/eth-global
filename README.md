@@ -190,141 +190,55 @@ The revolutionary payment model that eliminates trust requirements:
 
 ---
 
-## 📁 Project Structure
 
-```
-eth-global/
-├── frontend/                 # React + TypeScript UI
-│   ├── src/
-│   │   ├── components/      # Annotation tools, dashboards
-│   │   ├── hooks/           # Hedera, Lit Protocol integrations
-│   │   ├── services/        # API clients for agents
-│   │   └── utils/           # Wallet adapters, IPFS helpers
-│   └── package.json
-│
-├── contracts/               # Solidity Smart Contracts
-│   ├── ProjectContract.sol  # Escrow and project management
-│   ├── ReputationContract.sol # On-chain reputation scoring
-│   ├── DisputeContract.sol  # Decentralized arbitration
-│   └── hardhat.config.js    # Hedera deployment config
-│
-├── agents/                  # Autonomous Agent System
-│   ├── screening/           # GPT-4 powered annotator screening
-│   ├── task-manager/        # LangChain + Hedera Agent Kit
-│   ├── task-assignment/     # Event-driven task distribution
-│   ├── quality-assurance/   # SingularityNET integration
-│   └── payment/             # Lit Protocol payment triggers
-│
-├── lit-actions/             # Lit Protocol Conditional Logic
-│   ├── payment-rules.js     # PKP payment conditions
-│   └── access-control.js    # Reputation-gated decryption
-│
-├── backend/                 # Off-chain Infrastructure
-│   ├── hcs-poller/          # Mirror Node event listener
-│   ├── ipfs-service/        # Pinata integration
-│   └── api/                 # REST API for frontend
-│
-└── docs/                    # Documentation
-    ├── ARCHITECTURE.md      # Detailed technical design
-    ├── API.md               # Agent and contract APIs
-    └── DEPLOYMENT.md        # Setup instructions
-```
-
----
 
 ## 🚀 Quick Start
+---
 
-### Prerequisites
-```
-Node.js >= 18.x
-Python >= 3.10
-Hedera Testnet Account (get from portal.hedera.com)
-Lit Protocol Cayenne Testnet Access
-OpenAI API Key (for screening agent)
-```
+HCS Topics can be verified on hashscan.io
 
-### 1. Clone Repository
-```bash
-git clone https://github.com/007Anmol/eth-global.git
-cd eth-global
-```
-
-### 2. Install Dependencies
-```bash
-# Frontend
-cd frontend && npm install
-
-# Agents
-cd ../agents && pip install -r requirements.txt
-
-# Contracts
-cd ../contracts && npm install
-```
-
-### 3. Configure Environment
-```bash
-cp .env.example .env
-```
-
-Edit `.env` with your credentials:
-```env
-# Hedera Configuration
-HEDERA_ACCOUNT_ID=0.0.YOUR_ACCOUNT
-HEDERA_PRIVATE_KEY=302e020100300506032b657004220420...
-HEDERA_NETWORK=testnet
-
-# Lit Protocol
-LIT_NETWORK=cayenne
-LIT_PKP_PUBLIC_KEY=your_pkp_public_key
-
-# OpenAI (for screening agent)
-OPENAI_API_KEY=sk-...
-
-# ASI Token
-ASI_TOKEN_ID=0.0.TOKEN_ID
-
-# IPFS/Pinata
-PINATA_API_KEY=your_pinata_key
-PINATA_SECRET_KEY=your_pinata_secret
-```
-
-### 4. Deploy Smart Contracts
-```bash
-cd contracts
-npx hardhat compile
-npx hardhat run scripts/deploy.js --network hedera-testnet
-```
-
-Save contract addresses to `.env`:
-```env
-PROJECT_CONTRACT_ADDRESS=0x...
-REPUTATION_CONTRACT_ADDRESS=0x...
-DISPUTE_CONTRACT_ADDRESS=0x...
-```
-
-### 5. Start Agents
-```bash
-cd agents
-
-# Terminal 1: Screening Agent
-python screening/agent.py
-
-# Terminal 2: Task Assignment Agent
-python task-assignment/agent.py
-
-# Terminal 3: Payment Agent
-python payment/agent.py
-```
-
-### 6. Launch Frontend
-```bash
-cd frontend
-npm run dev
-```
-
-Access at `http://localhost:3000`
+PROJECT_TOPICS_ID=0.0.7121902
+SCREENING_TOPICS_ID=0.0.7121903
+COMPLETION_TOPICS_ID=0.0.7121905
 
 ---
+
+ASI agent: @ai-screening-agent
+Address: agent1qw4q278rq5zgyvjz8snrvm03dvvpaw546v8lwa499md2336elksjc9l7tyz
+Link: https://agentverse.ai/agents/details/agent1qw4q278rq5zgyvjz8snrvm03dvvpaw546v8lwa499md2336elksjc9l7tyz/profile 
+
+---
+
+env template
+PINATA_JWT= 
+NEXT_PUBLIC_GATEWAY_URL=
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+
+# Hedera Testnet Credentials
+HEDERA_TESTNET_ACCOUNT_ID=
+HEDERA_TESTNET_PRIVATE_KEY=
+HEDERA_TESTNET_OPERATOR_KEY=
+
+
+# Mirror Node URL
+MIRROR_NODE_URL=h
+REPUTATION_CONTRACT_ADDRESS=
+
+PROJECT_TOPICS_ID=
+SCREENING_TOPICS_ID=
+ASSIGNMENT_TOPICS_ID=
+COMPLETION_TOPICS_ID=
+PAYMENT_TOPICS_ID=
+
+ASI_API_KEY=
+
+LIT_NETWORK=
+LIT_PRIVATE_KEY=
+
+JWT_SECRET=
+
+---
+
 
 ## 📊 Demo Workflow
 
@@ -458,9 +372,9 @@ function calculateReputation(address annotator) public view returns (uint256) {
 
 - **GitHub:** [github.com/007Anmol/eth-global](https://github.com/007Anmol/eth-global)
 - **Live Demo:** Coming Soon
-- **Documentation:** In Repository `/docs` folder
 
 ---
+
 
 
 </div>

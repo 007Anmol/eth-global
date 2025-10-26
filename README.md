@@ -1,3 +1,4 @@
+![WhatsApp Image 2025-10-26 at 21 15 08_97d028d3](https://github.com/user-attachments/assets/50adb70a-2c77-4bd1-9a81-f8f7dc5f1cce)
 Revolutionizing AI Training Data Creation through Decentralization
 
 A trustless, transparent, and autonomous data annotation ecosystem that eliminates centralized intermediaries by leveraging Hedera Hashgraph for immutable audit trails, ASI Alliance for intelligent automation, and Lit Protocol for cryptographic payment guarantees.

@@ -6,6 +6,7 @@ A trustless, transparent, and autonomous data annotation ecosystem that eliminat
 🎯 The Problem
 The $2.7B data annotation industry is controlled by centralized platforms (Scale AI, Amazon MTurk, Labelbox) that:
 
+
 ❌ Extract 30-50% platform fees from every transaction
 ❌ Own annotator reputations, creating vendor lock-in
 ❌ Provide zero transparency into data handling or quality control
@@ -82,24 +83,11 @@ project.{id}.payments - Payment execution records
 
 
 HTS Integration for ASI token micropayments
-Solidity Smart Contracts for escrow, reputation, disputes
 Mirror Node API for querying historical events
 
-javascript// Example: Publishing annotation submission to HCS
-const message = {
-  event: "ANNOTATION_SUBMITTED",
-  annotator_id: "0x742d35Cc...",
-  task_id: "task_123",
-  submission_timestamp: 1735257600,
-  annotation_hash: "QmT5NvUtoM5nW..."
-};
-
-await new TopicMessageSubmitTransaction()
-  .setTopicId(topicId)
-  .setMessage(JSON.stringify(message))
-  .execute(client);
 
 🤖 ASI Alliance (Intelligence Layer)
+
 Fetch.ai uAgents Framework - 5 Autonomous Agents:
 
 Screening Agent (Python + GPT-4)
@@ -138,30 +126,6 @@ Records payment execution back to HCS
 
 
 
-SingularityNET AI Marketplace:
-
-Semantic segmentation for bounding box verification
-Named Entity Recognition for text consistency
-Anomaly detection for quality control
-Pre-annotation models (SAM, YOLO, etc.)
-
-python# Example: Screening Agent using GPT-4
-@agent.on_event("startup")
-async def screen_annotator(ctx: Context, msg: ScreeningRequest):
-    questions = await openai.ChatCompletion.create(
-        model="gpt-4",
-        messages=[{
-            "role": "system",
-            "content": f"Generate 10 {msg.domain} expertise questions"
-        }]
-    )
-    
-    score = await evaluate_responses(msg.answers, questions)
-    
-    await publish_to_hcs(
-        topic=f"project.{msg.project_id}.screening",
-        message={"annotator_id": msg.annotator_id, "score": score}
-    )
 
 🔐 Lit Protocol (Trustless Execution Layer)
 Vincent Payment Delegation System:
@@ -172,34 +136,6 @@ Defines payment rules as Lit Actions (JavaScript conditions)
 Delegates to Payment Agent - agent can only trigger, not control funds
 Automatic execution when cryptographic conditions are met
 
-Payment Flow:
-javascript// Lit Action: Conditional Payment Logic
-const paymentRules = async () => {
-  // Read Hedera Mirror Node for review status
-  const reviewData = await fetch(
-    `https://mainnet-public.mirrornode.hedera.com/api/v1/topics/${topicId}/messages`
-  );
-  
-  const latestReview = JSON.parse(reviewData.messages[0].message);
-  
-  // Check conditions
-  if (
-    latestReview.status === "APPROVED" &&
-    latestReview.annotator_reputation >= 80 &&
-    latestReview.quality_score >= 90
-  ) {
-    // PKP signs Hedera transaction via threshold cryptography
-    return await Lit.Actions.signAndCombineEcdsa({
-      toSign: {
-        to: annotatorAddress,
-        amount: taskPayment,
-        tokenId: ASI_TOKEN_ID
-      },
-      publicKey: pkpPublicKey,
-      sigName: "payment-sig"
-    });
-  }
-};
 Access Control Conditions:
 
 Reputation-gated dataset access
@@ -326,20 +262,22 @@ Save contract addresses to .env:
 envPROJECT_CONTRACT_ADDRESS=0x...
 REPUTATION_CONTRACT_ADDRESS=0x...
 DISPUTE_CONTRACT_ADDRESS=0x...
+
+
+
 5. Start Agents
 bashcd agents
 
-# Terminal 1: HCS Event Poller
-python hcs-poller/main.py
-
-# Terminal 2: Screening Agent
+# Terminal 1: Screening Agent
 python screening/agent.py
 
-# Terminal 3: Task Assignment Agent
+# Terminal 2: Task Assignment Agent
 python task-assignment/agent.py
 
-# Terminal 4: Payment Agent
+# Terminal 3: Payment Agent
 python payment/agent.py
+
+
 6. Launch Frontend
 bashcd frontend
 npm run dev
@@ -367,14 +305,6 @@ Annotate Tasks using professional toolkit
 Submit Work (published to HCS instantly)
 Receive Payment (8-12 seconds after review approval)
 Build Reputation (every task adds to on-chain score)
-
-As a Reviewer:
-
-Stake ASI Tokens to access reviewer tasks
-Receive Review Assignments from QA Agent
-Evaluate Submissions with AI assistance
-Submit Review (triggers Lit Protocol payment)
-Earn Review Fees automatically
 
 
 🔬 Technical Deep Dives

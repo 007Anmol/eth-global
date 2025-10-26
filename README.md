@@ -1,33 +1,54 @@
-![WhatsApp Image 2025-10-26 at 21 15 08_97d028d3](https://github.com/user-attachments/assets/50adb70a-2c77-4bd1-9a81-f8f7dc5f1cce)
-Revolutionizing AI Training Data Creation through Decentralization
+# 🚀 Decentralized Data Annotation Platform
+
+![Banner](https://github.com/user-attachments/assets/50adb70a-2c77-4bd1-9a81-f8f7dc5f1cce)
+
+**Revolutionizing AI Training Data Creation through Decentralization**
 
 A trustless, transparent, and autonomous data annotation ecosystem that eliminates centralized intermediaries by leveraging Hedera Hashgraph for immutable audit trails, ASI Alliance for intelligent automation, and Lit Protocol for cryptographic payment guarantees.
 
-🎯 The Problem
+---
+
+## 🎯 The Problem
+
 The $2.7B data annotation industry is controlled by centralized platforms (Scale AI, Amazon MTurk, Labelbox) that:
 
+- ❌ Extract 30-50% platform fees from every transaction
+- ❌ Own annotator reputations, creating vendor lock-in
+- ❌ Provide zero transparency into data handling or quality control
+- ❌ Delay payments for weeks while holding funds in escrow
+- ❌ Offer no recourse for disputed rejections or unfair reviews
 
-❌ Extract 30-50% platform fees from every transaction
-❌ Own annotator reputations, creating vendor lock-in
-❌ Provide zero transparency into data handling or quality control
-❌ Delay payments for weeks while holding funds in escrow
-❌ Offer no recourse for disputed rejections or unfair reviews
+**5+ million global annotators** lack portable credentials, fair compensation, and transparent processes.
 
-5+ million global annotators lack portable credentials, fair compensation, and transparent processes.
+---
 
-✨ Our Solution
-A decentralized protocol (not a platform) where clients, annotators, and AI services interact directly through:
+## ✨ Our Solution
 
-🔗 Smart contracts for trustless escrow and reputation
-🤖 Autonomous agents for workflow automation
-🔐 Cryptographic guarantees for conditional payments
-📊 Immutable audit trails for complete transparency
+A **decentralized protocol** (not a platform) where clients, annotators, and AI services interact directly through:
 
-Key Innovations
-FeatureTraditional PlatformsOur PlatformPayment Speed7-30 daysReal-time (8-12 seconds)Platform Fee30-50%~0.01% (blockchain fees only)ReputationPlatform-owned, non-transferableOn-chain, globally portableTransparencyBlack boxEvery event immutably recordedPayment TrustTrust centralized processorCryptographic guarantees (Lit Protocol)Quality ControlManual/opaqueAI-powered + multi-peer consensus
+- 🔗 **Smart contracts** for trustless escrow and reputation
+- 🤖 **Autonomous agents** for workflow automation
+- 🔐 **Cryptographic guarantees** for conditional payments
+- 📊 **Immutable audit trails** for complete transparency
 
-🏗️ Architecture
-Three-Layer Technology Stack
+### Key Innovations
+
+| Feature | Traditional Platforms | Our Platform |
+|---------|----------------------|--------------|
+| **Payment Speed** | 7-30 days | Real-time (8-12 seconds) |
+| **Platform Fee** | 30-50% | ~0.01% (blockchain fees only) |
+| **Reputation** | Platform-owned, non-transferable | On-chain, globally portable |
+| **Transparency** | Black box | Every event immutably recorded |
+| **Payment Trust** | Trust centralized processor | Cryptographic guarantees (Lit Protocol) |
+| **Quality Control** | Manual/opaque | AI-powered + multi-peer consensus |
+
+---
+
+## 🏗️ Architecture
+
+### Three-Layer Technology Stack
+
+```
 ┌─────────────────────────────────────────────────────────────┐
 │                     USER INTERFACE LAYER                     │
 │  React + TypeScript + Canvas API + WalletConnect            │
@@ -61,123 +82,117 @@ Three-Layer Technology Stack
 │                                                               │
 │  10,000 TPS • $0.0001/tx • 3-5s finality • aBFT security    │
 └─────────────────────────────────────────────────────────────┘
+```
 
-🔧 Technologies Used
-🌐 Hedera Hashgraph (Ledger Layer)
-Why Hedera?
+---
 
-⚡ 10,000+ TPS throughput vs 15-30 TPS on Ethereum
-💰 $0.0001 per transaction making micropayments viable
-⏱️ 3-5 second finality for real-time operations
-🛡️ aBFT consensus - mathematically proven security
+## 🔧 Technologies Used
 
-Implementation:
+### 🌐 Hedera Hashgraph (Ledger Layer)
 
-5 HCS Topics for event-driven architecture:
+**Why Hedera?**
+- ⚡ **10,000+ TPS** throughput vs 15-30 TPS on Ethereum
+- 💰 **$0.0001 per transaction** making micropayments viable
+- ⏱️ **3-5 second finality** for real-time operations
+- 🛡️ **aBFT consensus** - mathematically proven security
 
-project.{id}.tasks - Task creation and lifecycle
-project.{id}.annotations - Submission events
-project.{id}.reviews - Quality control outcomes
-project.{id}.screening - Annotator qualifications
-project.{id}.payments - Payment execution records
+**Implementation:**
+- **5 HCS Topics** for event-driven architecture:
+  - `project.{id}.tasks` - Task creation and lifecycle
+  - `project.{id}.annotations` - Submission events
+  - `project.{id}.reviews` - Quality control outcomes
+  - `project.{id}.screening` - Annotator qualifications
+  - `project.{id}.payments` - Payment execution records
 
+- **HTS Integration** for ASI token micropayments
+- **Mirror Node API** for querying historical events
 
-HTS Integration for ASI token micropayments
-Mirror Node API for querying historical events
+---
 
+### 🤖 ASI Alliance (Intelligence Layer)
 
-🤖 ASI Alliance (Intelligence Layer)
+**Fetch.ai uAgents Framework** - 5 Autonomous Agents:
 
-Fetch.ai uAgents Framework - 5 Autonomous Agents:
+1. **Screening Agent** (Python + GPT-4)
+   - Generates domain-specific expertise questions
+   - Evaluates annotator qualifications using AI
+   - Publishes scores to HCS for permanent record
 
-Screening Agent (Python + GPT-4)
+2. **Task Manager Agent** (TypeScript + Hedera Agent Kit + LangChain)
+   - Natural language project creation
+   - Automatic smart contract deployment
+   - "Create medical imaging project with 1000 tasks" → Instant deployment
 
-Generates domain-specific expertise questions
-Evaluates annotator qualifications using AI
-Publishes scores to HCS for permanent record
+3. **Task Assignment Agent** (Event-Driven)
+   - Subscribes to HCS task topics
+   - Queries on-chain reputation scores
+   - Assigns to optimal annotators in real-time
 
+4. **Quality Assurance Agent** (AI-Powered)
+   - Monitors annotation submissions
+   - Calls SingularityNET models for automated QC
+   - Triggers peer review workflows
 
-Task Manager Agent (TypeScript + Hedera Agent Kit + LangChain)
+5. **Payment Agent** (Lit Protocol Integration)
+   - Detects review approvals on HCS
+   - Triggers Lit Actions for conditional payments
+   - Records payment execution back to HCS
 
-Natural language project creation
-Automatic smart contract deployment
-"Create medical imaging project with 1000 tasks" → Instant deployment
+---
 
+### 🔐 Lit Protocol (Trustless Execution Layer)
 
-Task Assignment Agent (Event-Driven)
+**Vincent Payment Delegation System:**
 
-Subscribes to HCS task topics
-Queries on-chain reputation scores
-Assigns to optimal annotators in real-time
-
-
-Quality Assurance Agent (AI-Powered)
-
-Monitors annotation submissions
-Calls SingularityNET models for automated QC
-Triggers peer review workflows
-
-
-Payment Agent (Lit Protocol Integration)
-
-Detects review approvals on HCS
-Triggers Lit Actions for conditional payments
-Records payment execution back to HCS
-
-
-
-
-🔐 Lit Protocol (Trustless Execution Layer)
-Vincent Payment Delegation System:
 The revolutionary payment model that eliminates trust requirements:
 
-Client mints PKP (Programmable Key Pair) - a decentralized wallet
-Defines payment rules as Lit Actions (JavaScript conditions)
-Delegates to Payment Agent - agent can only trigger, not control funds
-Automatic execution when cryptographic conditions are met
+1. **Client mints PKP** (Programmable Key Pair) - a decentralized wallet
+2. **Defines payment rules** as Lit Actions (JavaScript conditions)
+3. **Delegates to Payment Agent** - agent can only trigger, not control funds
+4. **Automatic execution** when cryptographic conditions are met
 
-Access Control Conditions:
+**Access Control Conditions:**
+- Reputation-gated dataset access
+- Decrypt IPFS hashes only for qualified annotators
+- Threshold: `reputation_score >= 75`
 
-Reputation-gated dataset access
-Decrypt IPFS hashes only for qualified annotators
-Threshold: reputation_score >= 75
+**Key Benefits:**
+- ✅ **Trustless**: Client never gives agent direct fund access
+- ✅ **Conditional**: PKP only signs if logic evaluates true
+- ✅ **Decentralized**: Threshold cryptography, no single point of failure
+- ✅ **Auditable**: All executions logged to Hedera HCS
 
-Key Benefits:
+---
 
-✅ Trustless: Client never gives agent direct fund access
-✅ Conditional: PKP only signs if logic evaluates true
-✅ Decentralized: Threshold cryptography, no single point of failure
-✅ Auditable: All executions logged to Hedera HCS
+## 🎨 Features
 
+### For Clients
+- ☑️ Natural language project creation
+- ☑️ Smart contract escrow with programmable payment rules
+- ☑️ Real-time project dashboards with on-chain verification
+- ☑️ AI-powered quality control and anomaly detection
+- ☑️ Immutable audit trail for regulatory compliance
+- ☑️ Dataset tokenization as NFTs for ownership/licensing
 
-🎨 Features
-For Clients
+### For Annotators
+- ☑️ Portable, on-chain reputation (verifiable credential)
+- ☑️ Real-time micropayments (8-12 second settlement)
+- ☑️ Professional annotation toolkit (bounding boxes, polygons, segmentation)
+- ☑️ AI-assisted pre-annotation for faster workflows
+- ☑️ Transparent dispute resolution with community arbitration
+- ☑️ Staking mechanism to bootstrap new annotators
 
-☑️ Natural language project creation
-☑️ Smart contract escrow with programmable payment rules
-☑️ Real-time project dashboards with on-chain verification
-☑️ AI-powered quality control and anomaly detection
-☑️ Immutable audit trail for regulatory compliance
-☑️ Dataset tokenization as NFTs for ownership/licensing
+### For the Ecosystem
+- ☑️ Zero platform fees (only ~$0.0001 blockchain fees)
+- ☑️ Open protocol - anyone can build interfaces or agents
+- ☑️ Self-improving AI feedback loop
+- ☑️ Decentralized governance via ASI token voting
 
-For Annotators
+---
 
-☑️ Portable, on-chain reputation (verifiable credential)
-☑️ Real-time micropayments (8-12 second settlement)
-☑️ Professional annotation toolkit (bounding boxes, polygons, segmentation)
-☑️ AI-assisted pre-annotation for faster workflows
-☑️ Transparent dispute resolution with community arbitration
-☑️ Staking mechanism to bootstrap new annotators
+## 📁 Project Structure
 
-For the Ecosystem
-
-☑️ Zero platform fees (only ~$0.0001 blockchain fees)
-☑️ Open protocol - anyone can build interfaces or agents
-☑️ Self-improving AI feedback loop
-☑️ Decentralized governance via ASI token voting
-
-
-📁 Project Structure
+```
 eth-global/
 ├── frontend/                 # React + TypeScript UI
 │   ├── src/
@@ -213,19 +228,30 @@ eth-global/
     ├── ARCHITECTURE.md      # Detailed technical design
     ├── API.md               # Agent and contract APIs
     └── DEPLOYMENT.md        # Setup instructions
+```
 
-🚀 Quick Start
-Prerequisites
-bashNode.js >= 18.x
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+```
+Node.js >= 18.x
 Python >= 3.10
 Hedera Testnet Account (get from portal.hedera.com)
 Lit Protocol Cayenne Testnet Access
 OpenAI API Key (for screening agent)
-1. Clone Repository
-bashgit clone https://github.com/007Anmol/eth-global.git
+```
+
+### 1. Clone Repository
+```bash
+git clone https://github.com/007Anmol/eth-global.git
 cd eth-global
-2. Install Dependencies
-bash# Frontend
+```
+
+### 2. Install Dependencies
+```bash
+# Frontend
 cd frontend && npm install
 
 # Agents
@@ -233,10 +259,16 @@ cd ../agents && pip install -r requirements.txt
 
 # Contracts
 cd ../contracts && npm install
-3. Configure Environment
-bashcp .env.example .env
-Edit .env with your credentials:
-env# Hedera Configuration
+```
+
+### 3. Configure Environment
+```bash
+cp .env.example .env
+```
+
+Edit `.env` with your credentials:
+```env
+# Hedera Configuration
 HEDERA_ACCOUNT_ID=0.0.YOUR_ACCOUNT
 HEDERA_PRIVATE_KEY=302e020100300506032b657004220420...
 HEDERA_NETWORK=testnet
@@ -254,19 +286,25 @@ ASI_TOKEN_ID=0.0.TOKEN_ID
 # IPFS/Pinata
 PINATA_API_KEY=your_pinata_key
 PINATA_SECRET_KEY=your_pinata_secret
-4. Deploy Smart Contracts
-bashcd contracts
+```
+
+### 4. Deploy Smart Contracts
+```bash
+cd contracts
 npx hardhat compile
 npx hardhat run scripts/deploy.js --network hedera-testnet
-Save contract addresses to .env:
-envPROJECT_CONTRACT_ADDRESS=0x...
+```
+
+Save contract addresses to `.env`:
+```env
+PROJECT_CONTRACT_ADDRESS=0x...
 REPUTATION_CONTRACT_ADDRESS=0x...
 DISPUTE_CONTRACT_ADDRESS=0x...
+```
 
-
-
-5. Start Agents
-bashcd agents
+### 5. Start Agents
+```bash
+cd agents
 
 # Terminal 1: Screening Agent
 python screening/agent.py
@@ -276,65 +314,82 @@ python task-assignment/agent.py
 
 # Terminal 3: Payment Agent
 python payment/agent.py
+```
 
-
-6. Launch Frontend
-bashcd frontend
+### 6. Launch Frontend
+```bash
+cd frontend
 npm run dev
-Access at http://localhost:3000
+```
 
-📊 Demo Workflow
-As a Client:
+Access at `http://localhost:3000`
 
-Connect Wallet (HashPack/MetaMask)
-Create Project via natural language:
+---
 
+## 📊 Demo Workflow
+
+### As a Client:
+
+1. **Connect Wallet** (HashPack/MetaMask)
+2. **Create Project** via natural language:
+   ```
    "Create medical imaging project with 500 X-rays, 
    pay 10 ASI per task, require reputation > 80"
+   ```
+3. **Fund Escrow** with ASI tokens
+4. **Define Payment Rules** in Lit Action editor
+5. **Monitor Dashboard** with real-time HCS-verified metrics
 
-Fund Escrow with ASI tokens
-Define Payment Rules in Lit Action editor
-Monitor Dashboard with real-time HCS-verified metrics
+### As an Annotator:
 
-As an Annotator:
+1. **Connect Wallet**
+2. **Complete AI Screening** (GPT-4 generates domain questions)
+3. **Browse Available Projects** (filtered by reputation requirements)
+4. **Annotate Tasks** using professional toolkit
+5. **Submit Work** (published to HCS instantly)
+6. **Receive Payment** (8-12 seconds after review approval)
+7. **Build Reputation** (every task adds to on-chain score)
 
-Connect Wallet
-Complete AI Screening (GPT-4 generates domain questions)
-Browse Available Projects (filtered by reputation requirements)
-Annotate Tasks using professional toolkit
-Submit Work (published to HCS instantly)
-Receive Payment (8-12 seconds after review approval)
-Build Reputation (every task adds to on-chain score)
+---
 
+## 🔬 Technical Deep Dives
 
-🔬 Technical Deep Dives
-HCS Event-Driven Architecture
+### HCS Event-Driven Architecture
+
 Traditional Web2 apps use centralized message queues (RabbitMQ, Kafka). We replaced them with Hedera Consensus Service:
-Advantages:
 
-✅ Decentralized, globally accessible
-✅ Cryptographically ordered and timestamped
-✅ Immutable audit trail
-✅ Triggers for autonomous agents
+**Advantages:**
+- ✅ Decentralized, globally accessible
+- ✅ Cryptographically ordered and timestamped
+- ✅ Immutable audit trail
+- ✅ Triggers for autonomous agents
 
-Message Flow:
+**Message Flow:**
+```
 Annotator submits → HCS message published → Mirror Node indexes
 → Agents subscribed to topic detect event → Agent executes logic
 → Agent publishes result to different HCS topic → Cycle continues
-Lit Protocol Payment Delegation
-Problem: How do you enable automated payments without giving an agent full control of funds?
-Solution: Programmable Key Pairs (PKPs) controlled by Lit Actions
-Security Model:
+```
 
-PKP private key never exists in full anywhere
-Distributed across Lit nodes as threshold shares
-Nodes collectively evaluate Lit Action conditions
-Only sign transaction if conditions evaluate to true
-Uses threshold cryptography (2/3 nodes must agree)
+### Lit Protocol Payment Delegation
 
-Result: Trustless automation - client defines rules, agents trigger execution, cryptography enforces correctness.
-On-Chain Reputation Algorithm
-solidityfunction calculateReputation(address annotator) public view returns (uint256) {
+**Problem:** How do you enable automated payments without giving an agent full control of funds?
+
+**Solution:** Programmable Key Pairs (PKPs) controlled by Lit Actions
+
+**Security Model:**
+1. PKP private key never exists in full anywhere
+2. Distributed across Lit nodes as threshold shares
+3. Nodes collectively evaluate Lit Action conditions
+4. Only sign transaction if conditions evaluate to `true`
+5. Uses threshold cryptography (2/3 nodes must agree)
+
+**Result:** Trustless automation - client defines rules, agents trigger execution, cryptography enforces correctness.
+
+### On-Chain Reputation Algorithm
+
+```solidity
+function calculateReputation(address annotator) public view returns (uint256) {
     uint256 accuracy = getAccuracyRate(annotator);      // 40% weight
     uint256 taskCount = getTotalTasks(annotator);        // 30% weight  
     uint256 peerReview = getPeerReviewAvg(annotator);    // 20% weight
@@ -345,53 +400,67 @@ solidityfunction calculateReputation(address annotator) public view returns (uin
            (peerReview * 20) + 
            (min(stake, 1000) / 100 * 10);
 }
-Data Source: HCS messages logged by agents (task completions, reviews, accuracy metrics)
-Oracle Pattern: Trusted agent aggregates HCS data, calls updateReputationScore()
-Verification: Anyone can independently recalculate by parsing HCS history
+```
 
-🎯 Hackathon Prize Categories
-🏆 Hedera Track
-Why we should win:
+**Data Source:** HCS messages logged by agents (task completions, reviews, accuracy metrics)
 
-Most comprehensive HCS implementation with 5 production topics
-Real-world micropayment system leveraging HTS ($0.0001 fees)
-Immutable audit trails demonstrating aBFT security value
-Event-driven architecture showcasing Hedera's unique capabilities
+**Oracle Pattern:** Trusted agent aggregates HCS data, calls `updateReputationScore()`
 
-🏆 ASI Alliance Track
-Why we should win:
+**Verification:** Anyone can independently recalculate by parsing HCS history
 
-Sophisticated multi-agent system (5 specialized uAgents)
-SingularityNET marketplace integration for AI-powered QC
-Self-improving feedback loop: annotations → train models → better pre-annotation
-Embodies ASI vision of decentralized, autonomous AI economy
+---
 
-🏆 Lit Protocol Track
-Why we should win:
+## 🎯 Hackathon Prize Categories
 
-Most innovative PKP use case: Vincent Payment Delegation
-Conditional payments reading blockchain state + executing transactions
-Reputation-gated access control for datasets
-Demonstrates Lit's full potential beyond basic encryption
+### 🏆 Hedera Track
+**Why we should win:**
+- Most comprehensive HCS implementation with 5 production topics
+- Real-world micropayment system leveraging HTS ($0.0001 fees)
+- Immutable audit trails demonstrating aBFT security value
+- Event-driven architecture showcasing Hedera's unique capabilities
+
+### 🏆 ASI Alliance Track  
+**Why we should win:**
+- Sophisticated multi-agent system (5 specialized uAgents)
+- SingularityNET marketplace integration for AI-powered QC
+- Self-improving feedback loop: annotations → train models → better pre-annotation
+- Embodies ASI vision of decentralized, autonomous AI economy
+
+### 🏆 Lit Protocol Track
+**Why we should win:**
+- Most innovative PKP use case: Vincent Payment Delegation
+- Conditional payments reading blockchain state + executing transactions
+- Reputation-gated access control for datasets
+- Demonstrates Lit's full potential beyond basic encryption
+
+---
+
+## 📈 Impact & Market Opportunity
+
+### Market Size
+- **Current:** $2.7B data annotation market (2024)
+- **Projected:** $17.2B by 2030 (23.4% CAGR)
+- **Addressable:** 5M+ global annotators
+
+### Social Impact
+- ✊ **Fair compensation:** Eliminate 30-50% platform fees
+- 🌍 **Global accessibility:** Borderless, permissionless access
+- 🎓 **Portable credentials:** Web3-native professional reputation
+- ⚖️ **Due process:** Transparent dispute resolution
+
+### Technical Innovation
+- 🔗 First production multi-chain agent system (Hedera + Lit)
+- 🤖 AI-orchestrated blockchain workflows
+- 💰 Sub-$0.01 micropayment infrastructure
+- 🛡️ Cryptographically enforced conditional execution
+
+## 🔗 Links
+
+- **GitHub:** [github.com/007Anmol/eth-global](https://github.com/007Anmol/eth-global)
+- **Live Demo:** Coming Soon
+- **Documentation:** In Repository `/docs` folder
+
+---
 
 
-📈 Impact & Market Opportunity
-Market Size
-
-Current: $2.7B data annotation market (2024)
-Projected: $17.2B by 2030 (23.4% CAGR)
-Addressable: 5M+ global annotators
-
-Social Impact
-
-✊ Fair compensation: Eliminate 30-50% platform fees
-🌍 Global accessibility: Borderless, permissionless access
-🎓 Portable credentials: Web3-native professional reputation
-⚖️ Due process: Transparent dispute resolution
-
-Technical Innovation
-
-🔗 First production multi-chain agent system (Hedera + Lit)
-🤖 AI-orchestrated blockchain workflows
-💰 Sub-$0.01 micropayment infrastructure
-🛡️ Cryptographically enforced conditional execution
+</div>
